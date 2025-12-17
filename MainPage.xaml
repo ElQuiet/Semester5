@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:GoToSleep.ViewModels"
+             x:Class="GoToSleep.MainPage"
+             BackgroundColor="#1a1a2e">
+    <ContentPage.BindingContext>
+        <vm:SleepViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30"
+            VerticalOptions="Center">
+
+            <Image Source="dotnet_bot.png"
+                   HeightRequest="100"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Sleep Monitor"
+                   TextColor="White"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Label Text="{Binding StatusMessage}"
+                   TextColor="#e94560"
+                   FontSize="18"
+                   HorizontalTextAlignment="Center" />
+
+            <Button Text="{Binding ButtonText}"
+                    Command="{Binding ToggleTrackingCommand}"
+                    BackgroundColor="#0f3460"
+                    TextColor="White"
+                    CornerRadius="20"
+                    HeightRequest="60"
+                    FontSize="20"
+                    Margin="0,20,0,20"
+                    x:Name="CounterBtn"/>
+
+            <Frame BackgroundColor="#16213e" 
+                   BorderColor="#0f3460"
+                   CornerRadius="10"
+                   Padding="20">
+                <VerticalStackLayout>
+                    <Label Text="Hasil Terakhir:" TextColor="Gray" FontSize="14"/>
+                    <Label Text="{Binding LastResult}" 
+                           TextColor="White" 
+                           FontSize="16"
+                           FontAttributes="Bold"/>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
